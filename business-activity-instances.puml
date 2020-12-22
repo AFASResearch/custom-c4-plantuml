@@ -1,0 +1,25 @@
+scale 5/8
+
+skinparam Shadowing false
+skinparam StorageBackGroundColor LightSteelBlue
+skinparam StorageStereotypeFontSize 10
+
+skinparam storage<<todo>> {
+    backgroundColor LightYellow
+}
+skinparam storage<<initial>> {
+    backgroundColor LightSteelBlue
+}
+skinparam storage<<done>> {
+    backgroundColor LightGreen
+}
+skinparam defaultTextAlignment center
+skinparam wrapWidth 200
+skinparam maxMessageSize 150
+
+!define TodoInstance(e_alias, e_label, id, amount) storage "==id\ne_label\n<size:9>amount</size>" <<todo>> as e_alias
+!define InitialInstance(e_alias, e_label, id, amount) storage "==id\ne_label\n<size:9>amount</size>" <<initial>> as e_alias
+!define DoneInstance(e_alias, e_label, id, amount) storage "==id\ne_label\n<size:9>amount</size>" <<done>> as e_alias
+!define Step(e_alias, e_label) rectangle e_label <<state>> as e_alias
+!define SourceLink(from, to) from -LEFT-> to #Gold
+!define Trigger(from, to, trigger) from -Down-> to : trigger
